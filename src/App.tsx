@@ -1,30 +1,35 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import React, { useState } from "react";
+import { Routes, Route, Link } from 'react-router-dom';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import '../src/App.css';
 
 function Navbar() {
     return (
-        <nav className="flex justify-between items-center p-4 border-b border-purple-400 text-purple-300">
-            <h1 className="text-xl font-bold">Name</h1>
-            <ul className="flex gap-4">
-                <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+        <nav>
+            <h1>Harsha</h1>
+            <ul className="nav-links">
+                <li><Link to="src/pages/Projects.tsx">Projects</Link></li>
+                <li><Link to="src/pages/About.tsx">About</Link></li>
+                <li><Link to="src/pages/Contact.tsx">Contact</Link></li>
             </ul>
         </nav>
     );
+
+
 }
 
-function Projects() {
+/*function Projects() {
     return <div className="p-4 text-purple-200">Your projects go here.</div>;
-}
+}*/
 
+/*
 function About() {
     return <div className="p-4 text-purple-200">About you goes here.</div>;
 }
+*/
 
+/*
 function Contact() {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [errors, setErrors] = useState({ name: '', email: '', message: '' });
@@ -84,21 +89,21 @@ function Contact() {
         </form>
     );
 }
+*/
+
 
 function App() {
     return (
-        <Router>
-            <div className="min-h-screen bg-black">
-                <Navbar />
-                <div className="p-4">
-                    <Routes>
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/contact" element={<Contact />} />
-                    </Routes>
-                </div>
-            </div>
-        </Router>
+        <div className="app-container">
+            <Navbar />
+            <main>
+                <Routes>
+                    <Route path="src/pages/Projects.tsx" element={<Projects />} />
+                    <Route path="src/pages/About.tsx" element={<About />} />
+                    <Route path="src/pages/Contact.tsx" element={<Contact />} />
+                </Routes>
+            </main>
+        </div>
     );
 }
 
